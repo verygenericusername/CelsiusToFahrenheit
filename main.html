@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Celsius to Fahrenheit Calculator</title>
+  <style>
+    .title {
+      color: white;
+      font-size: 30px;
+      font-family: cursive;
+      text-align: center;
+      text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px lime;
+	  opacity:0;
+	}
+
+    .calculator-box {
+      width: 300px;
+      height: 20px;
+      outline: 3px solid black;
+      outline-width: 2px;
+      border-color: black;
+      margin: auto;
+      background: linear-gradient(to bottom, #00ff66, #00bf4c);
+      border-radius: 0px;
+    }
+
+    .borderthing {
+      transition: border-radius 2s, height 0.5s ease-out;
+	  transition: height 0.5s;
+      border-radius: 20px;
+	  height: 400px;
+    }
+	.titlefade{
+	transition: opacity 1s;
+	opacity: 1;
+	}
+	.boxtext {
+	color:white;
+	font-size:18px;
+	font-family:cursive;
+	text-align:center;
+	text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px lime;
+	opacity: 0;
+	}
+	.boxtextfade {
+	transition: opacity 1s;
+	opacity: 1;
+	}
+	.celsius {
+	height: 50px;
+	outline: none;
+	border: none;
+	text-align:center;
+	font-family:cursive;
+	font-size:15px;
+	opacity:0;
+	}
+	.label {
+	color:white;
+	font-size:20px;
+	font-family:cursive;
+	text-align:center;
+	text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
+	opacity:0;
+	}
+	.convert {
+    background-color: lime;
+    color: white;
+    font-size: 30px;
+    font-family: cursive;
+    outline-color: white;
+    outline-width: 5px;
+    border-radius: 8px;
+    width: 150px;
+    height: 70px;
+    position: relative;
+	opacity:0;
+    transition: transform 0.3s ease-out;
+    padding: 10px;
+}
+
+.convert:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-out;
+}
+
+	.result {
+	color:white;
+	font-size:20px;
+	font-family:cursive;
+	text-align:center;
+	text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px lime;
+	position:relative;
+	top:-12px;
+	opacity:0;
+	}
+	.boxelementsfade {
+	transition: opacity 1.5s;
+	opacity: 1;
+	}
+	
+
+  </style>
+</head>
+<body>
+  <h1 id="title" class="title">Chevy's Celsius To Fahrenheit Calculator</h1>
+  <div id="box" class="calculator-box" align="center">
+  <h1 id="boxtitle" class="boxtext">Celcsius To Fahrenheit Calculator</h1>
+  <br>
+  <br>
+  <br>
+  <h2 id="celsiusthingy" class="label">Celsius</h2>
+  <input id="cinput" class="celsius" placeholder="Celsius Here" type="number" value="0"></input>
+  <br>
+  <br>
+  <br>
+  <br>
+  <button id="convert" class="convert">Convert</button>
+  <h2 id="result" class="result">0°C in Fahrenheit is 0°F</h2>
+  </div>
+  <script>
+    var box = document.getElementById("box");
+	var title = document.getElementById("title");
+	var boxtitle = document.getElementById("boxtitle");
+	var boxelements = box.getElementsByTagName("*");
+	var convert = document.getElementById("convert");
+	var result = document.getElementById("result");
+	var celsiusBox = document.getElementById("cinput");
+    window.addEventListener("load", function() {
+	boxtitle.classList.add("boxtextfade");
+      box.classList.add("borderthing");
+	  title.classList.add("titlefade");
+	  for(var i = 0; i < boxelements.length; i++){
+	  boxelements[i].classList.add("boxelementsfade");
+	  }
+	  result.style.display = "none";
+    });
+	var celsius;
+	var fahrenheit = 0;
+	
+	convert.addEventListener("click", function(){
+	if(result.style.display = "none"){
+	
+	result.style.display = "block";
+	}
+		celsius = celsiusBox.value;
+	fahrenheit = (celsius * 9 / 5) + 32;
+	result.innerHTML = celsiusBox.value + "°C in Fahrenheit is "  + fahrenheit + "°F";
+	});
+  </script>
+</body>
+</html>
